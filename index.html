@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Video Player</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <div class="video-container" id="video-container">
+
+        <!-- Video -->
+        <video>
+          <source src="http://123.192.151.4:1000/files/video.mp4" type="video/mp4" />
+          <source src="http://123.192.151.4:1000/files/video.ogg" type="video/mp4" />
+        </video>
+
+        <!--Video Controls-->
+        <div class="video-controls">
+          <div id="progress-clickable" class="progress-clickable">
+            <canvas id="progress-bar" width="" height="5"></canvas>
+          </div>
+          <button type="button" id="play-pause"><img src="icons/play-icon.png" /></button>
+          <div class="button-right">
+            <button type="button" id="mute"><img src="icons/volume-on-icon.png" /></button>
+            <button type="button" id="full-screen"><img src="icons/fullscreen-icon.png" /></button>
+          </div>
+
+        </div> <!--/video-controls-->
+
+      </div> <!--/video-container-->
+
+      <div class="transcript-container">
+        <p class="transcript" id="transcript">
+          <span id="transcript-1" data-start="0">
+            Now that we've looked at the architecture of the internet, let's see how you might
+          </span>
+
+          <span id="transcript-2" data-start="4.130">
+            connect your personal devices to the internet inside your house.
+          </span>
+
+          <span id="transcript-3" data-start="7.535">
+            Well there are many ways to connect to the internet,
+          </span>
+
+          <span id="transcript-4" data-start="11.270">
+            and most often people connect wirelessly.
+          </span>
+
+          <span id="transcript-5" data-start="13.960">
+            Let's look at an example of how you can connect to the internet.
+          </span>
+
+          <span id="transcript-6" data-start="17.940">
+            If you live in a city or a town, you probably have a coaxial cable for
+          </span>
+
+          <span id="transcript-7" data-start="22.370">
+            cable Internet, or a phone line if you have DSL, running to the outside of
+          </span>
+
+          <span id="transcript-8" data-start="26.880">
+            your house, that connects you to the Internet Service Provider, or ISP.
+          </span>
+
+          <span id="transcript-9" data-start="32.100">
+            If you live far out in the country, you'll more likely have
+          </span>
+
+          <span id="transcript-10" data-start="34.730">
+            a dish outside your house, connecting you wirelessly to your closest ISP, or
+          </span>
+
+          <span id="transcript-11" data-start="39.430">
+            you might also use the telephone system.
+          </span>
+
+          <span id="transcript-12" data-start="42.350">
+            Whether a wire comes straight from the ISP hookup outside your house, or
+          </span>
+
+          <span id="transcript-13" data-start="46.300">
+            it travels over radio waves from your roof,
+          </span>
+
+          <span id="transcript-14" data-start="49.270">
+            the first stop a wire will make once inside your house, is at your modem.
+          </span>
+
+          <span id="transcript-15" data-start="53.760">
+            A modem is what connects the internet to your network at home.
+          </span>
+
+          <span id="transcript-16" data-start="57.780">
+            A few common residential modems are DSL or ...
+          </span>
+
+        </p>
+      </div> <!--/transcript-container-->
+
+    </div><!--wrapper-->
+
+  <script src="js/player.js"></script>
+  </body>
+
+</html>
