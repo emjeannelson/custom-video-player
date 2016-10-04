@@ -66,6 +66,11 @@ Video Controls Styles
 .video-controls .progress-clickable {
   height: 15px; /* Makes clickable area for progress bar larger*/
   position: relative;
+  top: 16px;
+}
+
+.video-controls:hover .progress-clickable {
+  transform: translateY(-30px);
 }
 
 .video-controls canvas {
