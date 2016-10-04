@@ -1,3 +1,15 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
+
 /********************
 Variables
 ********************/
@@ -42,9 +54,9 @@ var transcriptParagraph = document.getElementById("transcript");
       setVideoTime: function() {
         video.currentTime = this.startTime;
       }
-    }
+    };
     transcriptArray.push(transcriptSegment);
-  };
+  }
 
   //run a loop that binds a click event listener to each span element in the transcript paragraph
   for (var i = 0; i < transcriptArray.length; i++) {
@@ -86,18 +98,18 @@ function positionCaptions(line) {
 //Plays and pauses the video
 
 function playPause() {
-  if (video.paused == true) {
+  if (video.paused === true) {
     //Play the video
     video.play();
 
     //Update the button icon to paused
-    playButton.innerHTML = "<img src='icons/pause-icon.png'>";
+    playButton.innerHTML = "<img src='icons/pause-icon.png' alt='Pause icon'>";
     } else {
     //Pause the video
     video.pause();
 
     //Update the button icon to play
-    playButton.innerHTML = "<img src='icons/play-icon.png'>";
+    playButton.innerHTML = "<img src='icons/play-icon.png' alt='Play icon'>";
   }
 }
 
@@ -109,18 +121,18 @@ function setPlaybackRate(newRate) {
 
 //Turns sound and off
 function toggleMute() {
-  if (video.muted == false) {
+  if (video.muted === false) {
     //Mute the video
     video.muted = true;
 
     //Update the button icon to volume off
-    muteButton.innerHTML = "<img src='icons/volume-off-icon.png'>";
+    muteButton.innerHTML = "<img src='icons/volume-off-icon.png' alt='Volume off icon'>";
   } else {
     //Unmute the video
     video.muted = false;
 
     //Update the button icon to volume on
-    muteButton.innerHTML = "<img src='icons/volume-on-icon.png'>";
+    muteButton.innerHTML = "<img src='icons/volume-on-icon.png' alt='Volume on icon'>";
   }
 }
 
@@ -139,10 +151,10 @@ function toggleFullScreen() {
 function toggleCaptions() {
   if (captions.mode == "hidden") {
     captions.mode = "showing";
-    captionsButton.innerHTML = "<img src='icons/cc-icon-orange.png'>";
+    captionsButton.innerHTML = "<img src='icons/cc-icon-orange.png' alt='Orange closed captioning icon'>";
   } else {
     captions.mode = "hidden";
-    captionsButton.innerHTML = "<img src='icons/cc-icon-white.png'>";
+    captionsButton.innerHTML = "<img src='icons/cc-icon-white.png' alt='White closed captioning icon'>";
   }
 }
 
@@ -250,17 +262,17 @@ speedButton.addEventListener("click", function() {
   else {
     setPlaybackRate(1);
   }
-})
+});
 
 //Click button to toggle mute
-muteButton.addEventListener("click", toggleMute)
+muteButton.addEventListener("click", toggleMute);
 
 //Click button to toggle fullscreen
 fullScreenButton.addEventListener("click", toggleFullScreen);
 
 volumeControl.addEventListener("input", function() {
   video.volume = this.value;
-})
+});
 
 //Click button to toggle captions
 captionsButton.addEventListener("click", toggleCaptions);
