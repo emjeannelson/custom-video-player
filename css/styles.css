@@ -263,12 +263,12 @@ Media Queries
 @media (min-width: 1024px) {
   .video-container,
   .transcript-container {
-    width: 45%;
     margin-top: 5%;
   }
 
   .video-container {
     float: left;
+    width: 50%;
     margin-left: 5%;
     padding-top: 1.3em;
   }
@@ -277,5 +277,6 @@ Media Queries
     float: right;
     margin-right: 5%;
     padding-top: 0;
+    width: 40%;
   }
 }
