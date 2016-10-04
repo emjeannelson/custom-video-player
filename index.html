@@ -15,19 +15,28 @@
 
         <!-- Video -->
         <video>
-          <source src="http://123.192.151.4:1000/files/video.mp4" type="video/mp4" />
-          <source src="http://123.192.151.4:1000/files/video.ogg" type="video/mp4" />
+          <source src="video.mp4" />
+          <source src="video.ogg" />
+          <track label="English" kind="subtitles" srclang="en" src="captions.vtt" default/>
+
         </video>
 
         <!--Video Controls-->
-        <div class="video-controls">
+        <div class="video-controls" id="video-controls">
           <div id="progress-clickable" class="progress-clickable">
             <canvas id="progress-bar" width="" height="5"></canvas>
           </div>
-          <button type="button" id="play-pause"><img src="icons/play-icon.png" /></button>
-          <div class="button-right">
-            <button type="button" id="mute"><img src="icons/volume-on-icon.png" /></button>
-            <button type="button" id="full-screen"><img src="icons/fullscreen-icon.png" /></button>
+          <div class="buttons-all" id="buttons-all">
+            <div class="button-left" id="button-left">
+              <button type="button" id="play-pause"><img src="icons/play-icon.png" /></button>
+              <button type="button" class="text-btn" id="playback-speed">1x</button>
+            </div>
+            <div class="button-right">
+              <button type="button" id="cc"><img src="icons/cc-icon-white.png" /></button>
+              <button type="button" id="mute"><img src="icons/volume-on-icon.png" /></button>
+              <input type="range" id="volume-control" min="0" max="1" step="0.05"/>
+              <button type="button" id="full-screen"><img src="icons/fullscreen-icon.png" /></button>
+            </div><!--/buttons-all-->
           </div>
 
         </div> <!--/video-controls-->
@@ -100,6 +109,7 @@
             A few common residential modems are DSL or ...
           </span>
 
+          <span id="transcript-17" data-start="100"></span>
         </p>
       </div> <!--/transcript-container-->
 

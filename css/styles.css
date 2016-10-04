@@ -1,7 +1,13 @@
-/*** Layout Styles ***/
+/********************
+Basic Layout Styles
+********************/
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-family: 'Droid Sans', sans-serif;
 }
 
 .wrapper {
@@ -10,6 +16,8 @@
 
 .video-container {
   width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -30,14 +38,30 @@ video {
   padding-right: 1.5em;
 }
 
-/*** Video Control Styles ***/
+/********************
+Video Controls Styles
+********************/
+
+/*** controls layout ***/
 
 .video-controls {
-  padding: 5px;
+  padding: 3px 5px 3px 5px;
   margin-bottom: 3px;
 }
 
-/* progress bar */
+.button-left {
+  float: left;
+}
+
+.button-right button:nth-last-of-type(1) {
+  margin-right: 8px;
+}
+
+.button-right {
+  float: right;
+}
+
+/*** progress bar ***/
 
 .video-controls .progress-clickable {
   height: 15px; /* Makes clickable area for progress bar larger*/
@@ -50,52 +74,208 @@ video {
   vertical-align: middle;
   position: absolute;
   top: 5px;
+  left: -4.7px /*to position the progress bar correctly, because of reasons(???)*/
 }
 
-/* buttons */
+/*** buttons ***/
 
 .video-controls button {
+  display: inline-block;
+  vertical-align: middle;
   border: none;
   background: transparent;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  opacity: 0;
   margin-left: 8px;
-  transition: opacity .25s ease;
 }
 
-.video-controls:hover button {
-  opacity: 1;
+.video-controls .text-btn {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 4px;
+  border: 2px solid white;
+  border-radius: 3px;
 }
 
 .video-controls button:focus {
   outline: none;
 }
 
-.button-right button:nth-last-of-type(1) {
-  margin-right: 8px;
+/*** timer (which refuses to have its opacity set when grouped with other selectors) ***/
+
+.timer {
+  display: inline-block;
+  color: white;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity .25s ease;
 }
 
-.button-right {
-  float: right;
-}
-
-.video-controls:hover button {
+.video-controls:hover .timer {
   opacity: 1;
 }
 
-/*** Transcript Styles ***/
+/*** controls are hidden except on hover ***/
+.video-controls button,
+.video-controls input {
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.video-controls:hover button,
+.video-controls:hover input {
+  opacity: 1;
+}
+
+/*** volume slider: chrome ***/
+
+.video-controls input[type=range]{
+    -webkit-appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 125px;
+  height: 2.5px;
+  background: white;
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 5px;
+    border-radius: 2px;
+    background: rgb(255,148,0);
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: white;
+}
+
+/*** volume slider: firefox ***/
+
+input[type=range]{
+    width: 125px;
+}
+
+input[type=range]::-moz-range-track {
+    width: 125px;
+    height: 3px;
+    background: white;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 12px;
+    width: 5px;
+    border-radius: 2px;
+    background: rgb(255,148,0);
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: white;
+}
+
+/*** volume slider: ie ****/
+
+input[type=range]::-ms-track {
+    width: 125px;
+    height: 3px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 5px 0;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: white;
+    border-radius: 3px;
+}
+input[type=range]::-ms-fill-upper {
+    background: rgb(106,107,107);
+    border-radius: 3px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 12px;
+    width: 5px;
+    border-radius: 2px;
+    background: rgb(255,148,0);
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: white;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: rgb(106,107,107);
+}
+
+/********************
+Transcript Styles
+********************/
 
 .transcript {
   width: 95%;
   margin: 1em auto;
-  font-family: 'Droid Sans', sans-serif;
   line-height: 1.6;
   color: #5b5b5b;
+  font-size: .8em;
+}
+
+.transcript span:hover {
+  color: rgb(255,148,0); /*to make it obvious that you can click the transcript*/
 }
 
 .highlight {
   transition: color .25s ease;
   color: rgb(255,148,0);
+}
+
+/********************
+Media Queries
+********************/
+
+@media (min-width: 769px) {
+
+  .video-container {
+    width: 67%;
+    margin-top: 5%;
+  }
+
+  .transcript-container {
+    width: 67%;
+    margin: 0 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video-container,
+  .transcript-container {
+    width: 45%;
+    margin-top: 5%;
+  }
+
+  .video-container {
+    float: left;
+    margin-left: 5%;
+    padding-top: 1.1em;
+  }
+
+  .transcript-container {
+    float: right;
+    margin-right: 5%;
+    padding-top: 0;
+  }
 }
