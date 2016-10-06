@@ -63,23 +63,17 @@ Video Controls Styles
 
 /*** progress bar ***/
 
-.video-controls .progress-clickable {
-  height: 15px; /* Makes clickable area for progress bar larger*/
-  position: relative;
-  top: 16px;
-}
-
-.video-controls:hover .progress-clickable {
-  transform: translateY(-30px);
-}
-
 .video-controls canvas {
   background-color: rgb(106,107,107); /*fallback background color*/
   background-color: rgba(106,107,107,.4);
   vertical-align: middle;
   position: absolute;
-  top: 5px;
-  left: -4.7px /*to position the progress bar correctly, because of reasons(???)*/
+  bottom: 8px;
+  left: 0;
+}
+
+.video-controls:hover canvas {
+  transform: translateY(-32px);
 }
 
 /*** buttons ***/
@@ -256,6 +250,7 @@ Media Queries
   .video-container {
     width: 67%;
     margin-top: 5%;
+    position: relative;
   }
 
   .transcript-container {

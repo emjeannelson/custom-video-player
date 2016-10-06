@@ -73,7 +73,7 @@ Methods
 //Set progress bar width
 
 function progressBarWidth() {
-  progressBar.width = videoContainer.clientWidth;
+  progressBar.width = video.clientWidth;
 }
 
 //Move captions up above the progress bar
@@ -160,7 +160,7 @@ function updateProgressBar() {
 
     var inc = progressBar.clientWidth / video.duration;
 
-    ctx.fillStyle = "rgba(100, 100, 100,.6)";
+    ctx.fillStyle = "rgba(200, 200, 200,.6)";
 
     for (var i = 0; i < buffered.length; i++) {
       var startX = buffered.start(i) * inc;
@@ -174,7 +174,7 @@ function updateProgressBar() {
     ctx.fillStyle = "rgb(255,148,0)";
 
     //Determine fill width based on current time
-    var progressWidth = (video.currentTime / video.duration) * (progressBar.clientWidth);
+    var progressWidth = (video.currentTime / video.duration) * (progressBar.width);
 
     if (progressWidth > 0) {
       ctx.fillRect(0,0, progressWidth, progressBar.clientHeight);
@@ -183,11 +183,8 @@ function updateProgressBar() {
 }
 
 //Jump to new video time based on click location
-function jumpToTime() {
-  var progressX = event.pageX;
-  var clickTime = (progressX / progressBar.clientWidth) * video.duration;
-  video.currentTime = clickTime;
-}
+
+
 
 //Add and remove "highlight" class to transcript segments
 function highlightTranscript() {
@@ -266,10 +263,15 @@ captionsButton.addEventListener("click", toggleCaptions);
 
 /*** Progress Bar ***/
 
-//When div surrounding progress bar is clicked, jump to new time
-clickArea.addEventListener("mousedown", function() {
-  jumpToTime();
-  displayTime();
+progressBar.addEventListener("mousedown", function() {
+
+  //determine the position of the click relative to the canvas
+  var rect = progressBar.getBoundingClientRect();
+  progressX = event.clientX - rect.left;
+  //calculate what time to jump to based on click
+  var clickTime = (progressX / progressBar.width) * video.duration;
+  //set video current time to clicktime
+  video.currentTime = clickTime;
 });
 
 /*** As Video Plays ***/
