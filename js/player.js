@@ -10,9 +10,6 @@ var videoContainer = document.getElementById("video-container");
 
 //Controls
 var videoControlsLeft = document.getElementById("button-left"); /*used as an anchor for appending the timer element*/
-
-  /*allButtons.style.visibility = "hidden"; /*controls are hidden by default*/
-
 var playButton = document.getElementById("play-pause");
 var speedButton = document.getElementById("playback-speed");
 var muteButton = document.getElementById("mute");
